@@ -358,9 +358,10 @@ else:
                         y=alt.Y('Total', title='Total Akumulasi'),
                         tooltip=['Metric', 'Total']
                     ).properties(
-                        title=f'Total Akumulasi Data: {category}'
+     #                   title=f'Total Akumulasi Data: {category}'
                     ).interactive()
                     st.altair_chart(chart, use_container_width=True)
 
     else:
         st.info("Tidak ada data untuk diakumulasi dan divisualisasikan.")
+
