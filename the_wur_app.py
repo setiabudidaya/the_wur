@@ -265,7 +265,7 @@ else:
         Total_Mahasiswa_Doktor=('doctorate_students', 'sum'),
         Total_Mahasiswa_Pertukaran=('exchange_students_abroad', 'sum'),
         Total_Gelar_Sarjana=('undergrad_degrees_awarded', 'sum'),
-        Total_Gelar_Magister=('masters_awarded', 'sum')
+        Total_Gelar_Magister=('masters_awarded', 'sum'),
         Total_Gelar_Doktor=('doctorates_awarded', 'sum'),
         Total_Pendapatan_Institusi=('total_institutional_income', 'sum'),
         Total_Pendapatan_Riset=('research_income', 'sum'),
@@ -368,6 +368,7 @@ else:
 
     else:
         st.info("Tidak ada data untuk diakumulasi dan divisualisasikan.")
+
 
 
 
