@@ -308,7 +308,7 @@ else:
             st.markdown(f"#### {column} per Subjek THE-WUR")
             # Create a bar chart using Altair
             chart = alt.Chart(rekapitulasi_data).mark_bar().encode(
-                x=alt.X('subject', title='Subjek THE-WUR', sort='-y'), # Sort by y-axis value descending
+                x=alt.X('subject', title='Subjek THE-WUR', sort='ascending'),
                 y=alt.Y(column, title=column),
                 tooltip=['subject', column],
                 color='subject' # Add color encoding by subject
@@ -354,7 +354,7 @@ else:
                 if not category_data.empty:
                     st.markdown(f"#### Total Akumulasi Data: {category}")
                     chart = alt.Chart(category_data).mark_bar().encode(
-                        x=alt.X('Metric', title='Metrik Data', sort='-y'),
+                        x=alt.X('Metric', title='Metrik Data', sort='ascending'),
                         y=alt.Y('Total', title='Total Akumulasi'),
                         tooltip=['Metric', 'Total']
                     ).properties(
@@ -364,4 +364,5 @@ else:
 
     else:
         st.info("Tidak ada data untuk diakumulasi dan divisualisasikan.")
+
 
