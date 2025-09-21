@@ -103,9 +103,11 @@ with st.form(key='data_input_form'):
     with col3:
         st.write("### Data Lulusan")
         undergrad_degrees_awarded_default = st.session_state.selected_row_data.get("undergrad_degrees_awarded", 0) if st.session_state.selected_row_data else 0
+        masters_awarded_default = st.session_state.selected_row_data.get("masters_awarded", 0) if st.session_state.selected_row_data else 0
         doctorates_awarded_default = st.session_state.selected_row_data.get("doctorates_awarded", 0) if st.session_state.selected_row_data else 0
 
         undergrad_degrees_awarded = st.number_input("Jumlah Lulusan Sarjana", min_value=0, step=1, value=undergrad_degrees_awarded_default)
+        masters_awarded = st.number_input("Jumlah Lulusan Magister", min_value=0, step=1, value=masters_awarded_default)
         doctorates_awarded = st.number_input("Jumlah Lulusan Doktor", min_value=0, step=1, value=doctorates_awarded_default)
 
     with col4:
@@ -141,6 +143,7 @@ with st.form(key='data_input_form'):
                 "doctorate_students": doctorate_students,
                 "exchange_students_abroad": exchange_students_abroad,
                 "undergrad_degrees_awarded": undergrad_degrees_awarded,
+                "masters_awarded": masters_awarded,
                 "doctorates_awarded": doctorates_awarded,
                 "total_institutional_income": total_institutional_income,
                 "research_income": research_income,
@@ -262,6 +265,7 @@ else:
         Total_Mahasiswa_Doktor=('doctorate_students', 'sum'),
         Total_Mahasiswa_Pertukaran=('exchange_students_abroad', 'sum'),
         Total_Gelar_Sarjana=('undergrad_degrees_awarded', 'sum'),
+        Total_Gelar_Magister=('masters_awarded', 'sum')
         Total_Gelar_Doktor=('doctorates_awarded', 'sum'),
         Total_Pendapatan_Institusi=('total_institutional_income', 'sum'),
         Total_Pendapatan_Riset=('research_income', 'sum'),
@@ -337,7 +341,7 @@ else:
             # Corrected student metrics based on previous aggregation logic and user input
             student_metrics = ['total_students', 'students_overseas', 'students_female', 'bachelors_students', 'masters_students', 'doctorate_students']
             # Corrected graduate metrics based on previous aggregation logic and user input
-            graduate_metrics = ['undergrad_degrees_awarded', 'doctorates_awarded']
+            graduate_metrics = ['undergrad_degrees_awarded', 'masters_awarded', 'doctorates_awarded']
 
 
             # Create and display charts for each category
@@ -364,5 +368,6 @@ else:
 
     else:
         st.info("Tidak ada data untuk diakumulasi dan divisualisasikan.")
+
 
 
